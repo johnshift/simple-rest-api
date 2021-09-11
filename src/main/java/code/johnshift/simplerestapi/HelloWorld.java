@@ -21,6 +21,14 @@ public class HelloWorld {
 
   @GetMapping(path = "/hello-world/path-variable/{name}")
   public HelloWorldBean helloWorldPathVariable(@PathVariable String name) {
+
+    // simulate delay
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException ex) {
+      Thread.currentThread().interrupt();
+    }
+
     return new HelloWorldBean(String.format("Hello World, %s", name));
   }
 
