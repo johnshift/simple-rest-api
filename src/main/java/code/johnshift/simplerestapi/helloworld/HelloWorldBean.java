@@ -1,4 +1,4 @@
-package code.johnshift.simplerestapi;
+package code.johnshift.simplerestapi.helloworld;
 
 public class HelloWorldBean {
 

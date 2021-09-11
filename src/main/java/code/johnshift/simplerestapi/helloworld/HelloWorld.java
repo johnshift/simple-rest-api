@@ -1,4 +1,4 @@
-package code.johnshift.simplerestapi;
+package code.johnshift.simplerestapi.helloworld;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
