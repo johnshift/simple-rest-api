@@ -2,12 +2,21 @@ package code.johnshift.simplerestapi.todo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Todo {
     private long id;
     private String username;
     private String description;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date targetDate;
     private boolean isDone;
+
+    // needed for PUT request
+    // default constructor
+    protected Todo() {
+    }
 
     public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
         this.id = id;
