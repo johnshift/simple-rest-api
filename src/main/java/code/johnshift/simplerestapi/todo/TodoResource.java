@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
+// import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+// import java.net.URI;
+
 import java.util.List;
 
 @RestController
@@ -66,12 +67,15 @@ public class TodoResource {
     }
 
     @PostMapping("/users/{username}/todos")
-    public ResponseEntity<Void> updateTodo(@PathVariable String username, @RequestBody Todo todo) {
+    public ResponseEntity<Todo> updateTodo(@PathVariable String username, @RequestBody Todo todo) {
         Todo todoCreated = todoService.save(todo);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(todoCreated.getId())
-                .toUri();
+        // URI uri =
+        // ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(todoCreated.getId())
+        // .toUri();
 
-        return ResponseEntity.created(uri).build();
+        // return ResponseEntity.created(uri).build();
+
+        return new ResponseEntity<Todo>(todoCreated, HttpStatus.OK);
     }
 }
